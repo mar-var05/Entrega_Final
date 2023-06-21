@@ -1,0 +1,12 @@
+{% extends 'Producto/index.html' %}
+
+{% block content_Producto %}
+
+    <h2>Tipo de Productos</h2>
+
+    {% for Producto in Producto %}
+      {{Producto}}
+        
+    {% endfor %}
+    
+{% endblock content_Producto %}

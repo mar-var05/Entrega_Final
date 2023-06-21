@@ -54,7 +54,6 @@ INSTALLED_APPS += [
     "Home",
     "Producto",
     "Servicio",
-    "Registro",
     "UserProfile",
     
 ]

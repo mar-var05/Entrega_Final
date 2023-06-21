@@ -8,6 +8,7 @@ class Producto(models. Model):
     Descripcion = models.CharField(max_length=150, null=True, blank=True)
     Precio = models.PositiveIntegerField(blank= True, null=True,default=0)    
     Se_encuentra_disponible = models.BooleanField(default=False)
+    Cantidad = models.FloatField()
     
     def __str__(self):
         return f"{self.Nombre_Producto} -- {self.Precio} -- {self.Se_encuentra_disponible}"
