@@ -9,7 +9,7 @@ class Servicio(models.Model):
     servicio_disponible = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.nombre_servicio}-- {self.Precio}--{self.servicio_disponible}"
+        return f"{self.nombre_servicio}-- {self.Precio}"
     
 class Meta:
     verbose_name = "Servicio"
