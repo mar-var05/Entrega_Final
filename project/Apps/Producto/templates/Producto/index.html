@@ -1,5 +1,15 @@
 {% extends 'Home/base.html' %}
 
 {% block content %}
-    <h1>Productos</h1>
-{% endblock content %}<h1>Productos</h1>
+   <h1>Productos</h1>
+   <div class="container"> 
+       {% block content_Producto %}
+    
+         <h3>Tipos de Barcos</h3>
+        
+           <a href="{% url 'Producto:Create_Producto' %}">Crear Producto</a> <br>
+           <a href="{% url 'Producto:List_Producto' %}">Lista de Productos</a> <br>
+      {% endblock content_Producto %}
+    </div>
+
+{% endblock content %}
