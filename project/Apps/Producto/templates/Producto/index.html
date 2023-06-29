@@ -1,15 +1,25 @@
-{% extends 'Home/base.html' %}
+{% extends 'home/base.html' %}
+
 
 {% block content %}
-   <h1>Productos</h1>
-   <div class="container"> 
-       {% block content_Producto %}
-    
-         <h3>Tipos de Barcos</h3>
-        
-           <a href="{% url 'Producto:Create_Producto' %}">Crear Producto</a> <br>
-           <a href="{% url 'Producto:List_Producto' %}">Lista de Productos</a> <br>
-      {% endblock content_Producto %}
-    </div>
 
+    <h1 class="shadow-lg text-center">Producto</h1>
+    <div class="container mt-lg-3">
+
+        <h3 class="pb-lg-3">
+            {% block title %}
+                Lista de Productos
+            {% endblock title %}
+        </h3>
+
+        {% block content_producto %}
+            <div class="d-grid gap-3">
+                {% if user.is_staff %}
+                    <a href="{% url 'Producto:Producto_create' %}" class="btn btn-primary">Crear</a>
+                {% endif %}
+                <a href="{% url 'Producto:Producto_list' %}" class="btn btn-primary">Listar</a> <br>
+            </div>
+        {% endblock content_producto %}
+
+    </div>
 {% endblock content %}

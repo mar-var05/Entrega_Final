@@ -1,37 +1,56 @@
-from django.shortcuts import redirect,render
-from django.http import HttpRequest,HttpResponse
-
-from . import models
-from . import forms
+#from django.core.paginator import _SupportsPagination
 # Create your views here.
-
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.views.generic import DetailView, ListView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+
+from . import forms, models
+
 
 #def index  (request:HttpRequest) -> HttpResponse:
- #   return render(request,"Producto/index.html")
+#    return render(request,"Producto/index.html")
+
+# List 
+
+class ProductoDetail(DetailView):
+    model = models.Producto
+
 
 class ProductoList(ListView):
     model = models.Producto
-    template_name = "Producto/List_Producto.html"
-    context_object_name = "List"
 
+    def get_queryset(self):
+        if self.request.GET.get("consulta"):
+            query = self.request.GET.get("consulta")
+            object_list = models.Producto.objects.filter(Nombre__icontains=query)
+        else:
+            object_list = models.Producto.objects.all()
+        return object_list      
+
+
+
+
+# Create
 class ProductoCreate(CreateView):
     model = models.Producto
     form_class = forms.ProductoForm
-    success_url = reverse_lazy("Producto:List_Producto")
+    success_url = reverse_lazy("Producto:index")
 
+   # def form_valid(self, form):
+    #    form.instance.owner = self.request.user
+     #   return super().form_valid(form)
 
+# Delete
 class ProductoDelete(DeleteView):
     model = models.Producto
-    success_url = reverse_lazy("Producto:List_Producto")
+    success_url = reverse_lazy("Producto:Producto_list")
 
-
+# Update (Actualizar)
 class ProductoUpdate(UpdateView):
     model = models.Producto
     form_class = forms.ProductoForm
-    success_url = reverse_lazy ("Producto:List_Producto")
+    success_url = reverse_lazy ("Producto:Producto_list")
 
-
-#class Producto            
+# Detail (Detalle)
+class ProductoDetail(DetailView):
+    model = models.Producto

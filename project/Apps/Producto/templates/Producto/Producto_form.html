@@ -1,14 +1,17 @@
 {% extends 'Producto/index.html' %}
 
-{% block content_Producto %}
-    
-     <h2>Actualizar Producto</h2>
 
+{% block title %} Lista de Productos {% endblock title %}
+
+{% block content_producto %}
     <form method="post">
-       {%csrf_token%}
-       {{ form.as_p }}
-       <button type= "submit" >Actualizar</button>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-3">
+            <button type="submi" class="btn btn-success">Guardar</button>
+            {% include 'Producto/index_back.html' %}
+        </div>
     </form>
 
-    <a href="{% url 'Producto:index' %}">Volver a indice de Producto</a>
-{% endblock content_Producto %}
+
+{% endblock content_producto %}

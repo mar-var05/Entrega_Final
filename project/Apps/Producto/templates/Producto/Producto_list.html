@@ -1,0 +1,45 @@
+{% extends 'Producto/index.html' %}
+
+
+{% block title %} Lista de Productos {% endblock title %}
+
+{% block content_producto %}
+
+
+  {% if object_list %}
+
+    <!-- Sirve para buscar categorías por nombre. Se pasa a la variable consulta de la vista. -->
+   <div class="py-lg-4">
+     <form action="{% url 'Producto:Producto_list' %}" method="get">
+       <input name="consulta" type="text" placeholder="Buscar...">
+     </form>
+   </div>
+
+    {% for Producto in object_list %}
+      <ul>
+        <li>{{ Producto.Nombre }}
+          <a href="{% url 'Producto:Producto_detail' Producto.id %}" class="btn btn-secondary">Ver detalle</a>
+          <a href="{% url 'Producto:Producto_update' Producto.id %}" class="btn btn-primary">Actualizar</a>
+          <a href="{% url 'Producto:Producto_delete' Producto.id %}" class="btn btn-danger">Eliminar</a>
+        </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p class="fs-4 fst-italic">No hay registros ingresados</p>
+  {% endif %}
+    <div class="d-grid gap-3">
+      {% include 'Producto/index_back.html' %}
+    </div>
+
+{% endblock content_producto %}
+
+        
+
+
+
+
+      
+
+
+
+
