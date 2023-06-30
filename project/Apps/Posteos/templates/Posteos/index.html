@@ -1,5 +1,25 @@
 {% extends 'Home/base.html' %}
 
+
 {% block content %}
-    <h1>Posteos</h1>
+
+    <h1 class="shadow-lg text-center">Posteos</h1>
+    <div class="container mt-lg-3">
+
+        <h3 class="pb-lg-3">
+            {% block title %}
+                Lista de Posteos
+            {% endblock title %}
+        </h3>
+
+        {% block content_posteos %}
+            <div class="d-grid gap-3">
+                {% if user.is_staff %}
+                    <a href="{% url 'Posteos:Posteos_create' %}" class="btn btn-primary">Crear</a>
+                {% endif %}
+                <a href="{% url 'Posteos:Posteos_list' %}" class="btn btn-primary">Listar</a> <br>
+            </div>
+        {% endblock content_posteos %}
+
+    </div>
 {% endblock content %}

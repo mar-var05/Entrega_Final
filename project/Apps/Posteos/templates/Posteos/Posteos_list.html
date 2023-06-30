@@ -1,0 +1,34 @@
+{% extends 'Posteos/index.html' %}
+
+
+{% block title %} Posteos {% endblock title %}
+
+{% block content_posteos %}
+
+
+  {% if object_list %}
+
+    <!-- Sirve para buscar categorías por nombre. Se pasa a la variable consulta de la vista. -->
+   <div class="py-lg-4">
+     <form action="{% url 'Posteos:Posteos_list' %}" method="get">
+       <input name="consulta" type="text" placeholder="Buscar...">
+     </form>
+   </div>
+
+    {% for Posteos in object_list %}
+      <ul>
+        <li>{{ Posteos.titulo }}
+          <a href="{% url 'Posteos:Posteos_detail' Posteos.id %}" class="btn btn-secondary">Ver detalle</a>
+          <a href="{% url 'Posteos:Posteos_update' Posteos.id %}" class="btn btn-primary">Actualizar</a>
+          <a href="{% url 'Posteos:Posteos_delete' Posteos.id %}" class="btn btn-danger">Eliminar</a>
+        </li>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p class="fs-4 fst-italic">No hay registros ingresados</p>
+  {% endif %}
+    <div class="d-grid gap-3">
+      {% include 'Posteos/index_back.html' %}
+    </div>
+
+{% endblock content_posteos %}
