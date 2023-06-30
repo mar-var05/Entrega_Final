@@ -8,7 +8,13 @@
     <ul>
         <li>
             <p><strong>Nombre:</strong> {{ object.Nombre }}</p>
-            <p><strong>Detalle:</strong> {{ object.Precio }}</p>
+            <p><strong>Descripción:</strong> {{ object.Descripcion }}</p>
+            <p><strong>Precio:</strong> {{ object.Precio }}</p>
+            <p><strong>Cantidad:</strong> {{ object.Cantidad }}</p>
+            {% if user.is_staff %}
+            <p><strong>Ultima Actualización:</strong> {{ object.Ultima_actualizacion }}</p>
+            {% endif %}
+                
         </li>
     </ul>
     <div class="d-grid gap-3">

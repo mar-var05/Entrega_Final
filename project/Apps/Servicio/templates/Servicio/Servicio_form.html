@@ -1,0 +1,17 @@
+{% extends 'Servicio/index.html' %}
+
+
+{% block title %} Lista de Servicio {% endblock title %}
+
+{% block content_servicio %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-3">
+            <button type="submi" class="btn btn-success">Guardar</button>
+            {% include 'Servicio/index_back.html' %}
+        </div>
+    </form>
+
+
+{% endblock content_servicio %}

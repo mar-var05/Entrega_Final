@@ -5,12 +5,12 @@
 
 {% block content_posteos %}
 
-    <ul>
-        <li>
-            <p><strong>Titulo:</strong> {{ object.titulo }}</p>
-            <p><strong>Contenido:</strong> {{ object.contenido }}</p>
-        </li>
-    </ul>
+    <div>
+        <div>
+            <h5 class="card-title">{{posteos.titulo}}</h5>
+            <p class="card-text">{{posteos.contenido}}</p>
+        </div>
+    </div>
     <div class="d-grid gap-3">
         {% include 'Posteos/index_back.html' %}
     </div>

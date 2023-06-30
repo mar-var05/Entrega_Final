@@ -1,0 +1,37 @@
+{% extends 'Servicio/index.html' %}
+
+
+{% block title %} Lista de Servicios {% endblock title %}
+
+{% block content_servicio %}
+
+
+  {% if object_list %}
+
+    <!-- Sirve para buscar categorías por nombre. Se pasa a la variable consulta de la vista. -->
+   <div class="py-lg-4">
+     <form action="{% url 'Servicio:Servicio_list' %}" method="get">
+       <input name="consulta" type="text" placeholder="Buscar...">
+     </form>
+   </div>
+
+    {% for Servicio in object_list %}
+      <ul>
+        <div>{{ Servicio.Nombre }}
+          <a href="{% url 'Servicio:Servicio_detail' Servicio.id %}" class="btn btn-secondary">Ver detalle</a>
+          {% if user.is_staff %}
+          <a href="{% url 'Servicio:Servicio_update' Servicio.id %}" class="btn btn-primary">Actualizar</a>
+          <a href="{% url 'Servicio:Servicio_delete' Servicio.id %}" class="btn btn-danger">Eliminar</a>
+          {% endif %}
+            
+        </div>
+      </ul>
+    {% endfor %}
+  {% else %}
+    <p class="fs-4 fst-italic">No hay registros ingresados</p>
+  {% endif %}
+    <div class="d-grid gap-3">
+      {% include 'Servicio/index_back.html' %}
+    </div>
+
+{% endblock content_servicio %}

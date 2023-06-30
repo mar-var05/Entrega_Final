@@ -17,11 +17,14 @@
 
     {% for Producto in object_list %}
       <ul>
-        <li>{{ Producto.Nombre }}
+        <div>{{ Producto.Nombre }}
           <a href="{% url 'Producto:Producto_detail' Producto.id %}" class="btn btn-secondary">Ver detalle</a>
+          {% if user.is_staff %}
           <a href="{% url 'Producto:Producto_update' Producto.id %}" class="btn btn-primary">Actualizar</a>
           <a href="{% url 'Producto:Producto_delete' Producto.id %}" class="btn btn-danger">Eliminar</a>
-        </li>
+          {% endif %}
+            
+        </div>
       </ul>
     {% endfor %}
   {% else %}

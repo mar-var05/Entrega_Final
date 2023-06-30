@@ -3,13 +3,14 @@ from django.db import models
 # Create your models here.
 
 class Servicio(models.Model):   
-    nombre_servicio = models.CharField(max_length=100)
+    nombre= models.CharField(max_length=100)
     descripcion = models.CharField(max_length=255)
     Precio = models.PositiveIntegerField()
-    servicio_disponible = models.BooleanField(default=False)
+    fecha = models.DateTimeField(auto_now=True, editable=False)
+    Ultima_actualizacion = models.DateTimeField(auto_now=True, editable=False, verbose_name="Ultima Actualización")
 
     def __str__(self):
-        return f"{self.nombre_servicio}-- {self.Precio}"
+        return f"{self.nombre}-- {self.Precio:.2f}"
     
 class Meta:
     verbose_name = "Servicio"

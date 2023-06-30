@@ -1,0 +1,21 @@
+{% extends 'Servicio/index.html' %}
+
+
+{% block title %} Detalle de Servicio {% endblock title %}
+
+{% block content_servicio %}
+
+    <ul>
+        <li>
+            <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+            <p><strong>Descripción:</strong> {{ object.descripcion }}</p>
+            <p><strong>Precio:</strong> {{ object.Precio }}</p>
+            <p><strong>Ultima Actualización:</strong> {{ object.Ultima_actualizacion }}</p>
+        </li>
+            
+    </ul>
+    <div class="d-grid gap-3">
+        {% include 'Servicio/index_back.html' %}
+    </div>
+
+{% endblock content_servicio %}
