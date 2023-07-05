@@ -5,7 +5,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 # Create your views here.
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 def index(request: HttpRequest) -> HttpResponse:
     return render(request, "Posteos/index.html")
 
@@ -20,7 +20,7 @@ class PosteosList(ListView):
         return object_list  
     
 
-class PosteosCreate(CreateView):
+class PosteosCreate(LoginRequiredMixin,CreateView):
     model = models.Posteos
     form_class = forms.PosteosForm
     success_url = reverse_lazy("Posteos:Posteos_list")

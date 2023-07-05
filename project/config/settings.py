@@ -55,9 +55,9 @@ INSTALLED_APPS += [
     "Producto",
     "Servicio",
     "Posteos",
-    "UserProfile",
-    
 ]
+    
+    
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -141,7 +141,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+#from django.urls import reverse_lazy
 #! Login
 
-LOGIN_URL = "Home:login"
+LOGIN_URL = ("Home:login")

@@ -1,6 +1,8 @@
 from typing import Any
 
 from django.db import models
+from django.utils import timezone
+
 
 # Create your models here.
 
@@ -9,7 +11,7 @@ class Producto(models.Model):
     Descripcion = models.CharField(max_length=300,blank=True, null=True)
     Precio = models.PositiveBigIntegerField()
     Cantidad = models.PositiveBigIntegerField()
-    Ultima_actualizacion = models.DateTimeField(auto_now=True, editable=False, verbose_name="Ultima Actualización")
+    Ultima_actualizacion = models.DateTimeField(default=timezone.now, editable=False, verbose_name="Ultima Actualización")
 
     def __str__(self):
        return f"{self.Nombre} -- ${self.Precio:.2f}"

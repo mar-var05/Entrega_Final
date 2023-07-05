@@ -3,12 +3,14 @@
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-
+from django.http import HttpResponse, HttpRequest
+from django.shortcuts import redirect, render
 from . import forms, models
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-#def index  (request:HttpRequest) -> HttpResponse:
-#    return render(request,"Producto/index.html")
+def index  (request:HttpRequest) -> HttpResponse:
+    return render(request,"Producto/index.html")
 
 # List 
 
@@ -31,7 +33,7 @@ class ProductoList(ListView):
 
 
 # Create
-class ProductoCreate(CreateView):
+class ProductoCreate(LoginRequiredMixin,CreateView):
     model = models.Producto
     form_class = forms.ProductoForm
     success_url = reverse_lazy("Producto:index")

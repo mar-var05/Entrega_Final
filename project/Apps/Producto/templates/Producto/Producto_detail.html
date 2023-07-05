@@ -11,8 +11,8 @@
             <p><strong>Descripción:</strong> {{ object.Descripcion }}</p>
             <p><strong>Precio:</strong> {{ object.Precio }}</p>
             <p><strong>Cantidad:</strong> {{ object.Cantidad }}</p>
-            {% if user.is_staff %}
             <p><strong>Ultima Actualización:</strong> {{ object.Ultima_actualizacion }}</p>
+            {% if user.is_staff %}
             {% endif %}
                 
         </li>

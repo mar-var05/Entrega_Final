@@ -3,14 +3,14 @@
 {% block content %}
 
     {% if  user.is_authenticated %}
-       <p>{{ mensaje }}</p>
+    <h3>Bienvenido(a) {{ user.username }}</h3>
     {% endif %}
 
-    {% if user.is.staff %}
+    {% if user.is_staff %}
        <p><a href="{% url 'admin:index' %}">Administración</a></p>
        <p><a href="{% url 'Home:register' %}">Registrar Nuevo Usuario</a></p>
-       
     {% endif %}
+       
         
 
         

@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 # Create your views here.
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 #def index(request: HttpRequest) -> HttpResponse:
  #   return render(request, "Servicio/index.html")
 
@@ -31,7 +31,7 @@ class ServicioList(ListView):
 
 
 # Create
-class ServicioCreate(CreateView):
+class ServicioCreate(LoginRequiredMixin,CreateView):
     model = models.Servicio
     form_class = forms.ServicioForm
     success_url = reverse_lazy("Servicio:index")
