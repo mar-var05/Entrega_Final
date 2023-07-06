@@ -17,8 +17,8 @@ urlpatterns = [
     path("update/<int:pk>", views.ProductoUpdate.as_view(), name="Producto_update"),
     path("detail/<int:pk>", views.ProductoDetail.as_view(), name="Producto_detail"),
 ]
-
 urlpatterns += staticfiles_urlpatterns()
+
 
 # from django.urls import path
 # from django.contrib.admin.views.decorators import staff_member_required

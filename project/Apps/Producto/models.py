@@ -12,6 +12,7 @@ class Producto(models.Model):
     Precio = models.PositiveBigIntegerField()
     Cantidad = models.PositiveBigIntegerField()
     Ultima_actualizacion = models.DateTimeField(default=timezone.now, editable=False, verbose_name="Ultima Actualización")
+    imagen = models.ImageField(upload_to="Producto", blank=True, null=True)
 
     def __str__(self):
        return f"{self.Nombre} -- ${self.Precio:.2f}"

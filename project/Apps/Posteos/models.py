@@ -9,6 +9,7 @@ class Posteos(models.Model):
     contenido = models.TextField()
     fecha = models.DateTimeField(auto_now=True, editable=False)
     Ultima_actualizacion = models.DateTimeField(auto_now=True, editable=False, verbose_name = "Ultima Actualización")
+    image = models.ImageField(upload_to="Posteos", blank=True, null=True)
 
 
 

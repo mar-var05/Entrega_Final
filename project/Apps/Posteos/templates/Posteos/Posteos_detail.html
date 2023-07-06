@@ -5,10 +5,25 @@
 
 {% block content_posteos %}
 
+<div class="card mb-3" style="max-width: 100%; padding: 0">
+    <div class="row g-0">
+      <div class="col-md-5" style="display: flex">
+        {% if posteos.image%}
+             <img src="{{posteos.image.url}}"
+            {% else %}
+              src="{{posteos.image.url}}" class="img-fluid rounded-start"  alt="..."
+               
+        {% endif %}
+          
+        />
+      </div>
+
     <div>
         <div>
-            <h5 class="card-title">{{posteos.titulo}}</h5>
+            <h1 class="card-title">{{posteos.titulo}}</h1>
+            <h5 class="card-subtitle">{{posteos.subtitulo}}</h5>
             <p class="card-text">{{posteos.contenido}}</p>
+            <p class="card-text"><span style="text-decoration: underline;">Ultima modificación:</span> {{posteos.Ultima_actualizacion}}</p>
         </div>
     </div>
     <div class="d-grid gap-3">

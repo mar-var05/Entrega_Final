@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from django.views.generic import TemplateView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
      path("", TemplateView.as_view(template_name="Posteos/index.html"), name="index"),
@@ -9,6 +10,7 @@ urlpatterns = [
     path("delete/<int:pk>", views.PosteosDelete.as_view(), name="Posteos_delete"),
     path("update/<int:pk>", views.PosteosUpdate.as_view(), name="Posteos_update"),
     path("detail/<int:pk>", views.PosteosDetail.as_view(), name="Posteos_detail"),
+]
+urlpatterns += staticfiles_urlpatterns()
 
      
-]

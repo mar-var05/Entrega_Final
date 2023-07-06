@@ -4,6 +4,14 @@
 {% block title %} Detalle de Productos {% endblock title %}
 
 {% block content_producto %}
+<div class="card" style="width: 22rem; padding: 0rem; margin: 1rem;">
+    {% if producto.imagen%}
+    <img 
+    src="{{producto.imagen.url}}"
+    {% else %}
+    src="{{producto.image.url}}"
+{% endif %}
+     class="card-img-top" alt="Producto ">
 
     <ul>
         <li>
