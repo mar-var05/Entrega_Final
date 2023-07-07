@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class Producto(models.Model):
     Nombre = models.CharField(max_length=100, unique=True)
-    Descripcion = models.CharField(max_length=300,blank=True, null=True)
+    Descripcion = models.CharField(max_length=1000,blank=True, null=True)
     Precio = models.PositiveBigIntegerField()
     Cantidad = models.PositiveBigIntegerField()
     Ultima_actualizacion = models.DateTimeField(default=timezone.now, editable=False, verbose_name="Ultima Actualización")

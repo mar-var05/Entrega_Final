@@ -5,6 +5,14 @@
 
 {% block content_servicio %}
 
+<div class="card" style="width: 22rem; padding: 0rem; margin: 1rem;">
+    {% if servicio.image%}
+    <img 
+    src="{{servicio.image.url}}"
+    {% else %}
+    src="{{servicio.image.url}}"
+{% endif %}
+     class="card-img-top" alt="Servicio ">
     <ul>
         <li>
             <p><strong>Nombre:</strong> {{ object.nombre }}</p>

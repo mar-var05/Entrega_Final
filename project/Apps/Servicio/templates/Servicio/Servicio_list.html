@@ -17,7 +17,7 @@
 
     {% for Servicio in object_list %}
       <ul>
-        <div>{{ Servicio.Nombre }}
+        <div>{{ Servicio.nombre }}
           <a href="{% url 'Servicio:Servicio_detail' Servicio.id %}" class="btn btn-secondary">Ver detalle</a>
           {% if user.is_staff %}
           <a href="{% url 'Servicio:Servicio_update' Servicio.id %}" class="btn btn-primary">Actualizar</a>

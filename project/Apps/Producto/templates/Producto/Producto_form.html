@@ -4,7 +4,7 @@
 {% block title %} Lista de Productos {% endblock title %}
 
 {% block content_producto %}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="d-grid gap-3">

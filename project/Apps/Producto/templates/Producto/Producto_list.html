@@ -1,41 +1,63 @@
-{% extends 'Producto/list.html' %}
+{% extends 'Producto/index.html' %}
 
-{% block title %}
-    Lista de Productos
-{% endblock title %}
 
-{% block search %}
-    <div class="py-lg-4">
-        <form action="{% url 'Producto:Producto_list' %}" method="get">
-            <input name="consulta" type="text" placeholder="Buscar...">
-        </form>
-    </div>
-{% endblock search %}
- 
-{% block table_header %}
-    <tr>
-        <th>Producto</th>
-        <th>Precio</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    
-{% endblock table_header %}
+{% block content_producto %}
+<div class="row gx-4 gx-lg-5" style="display: flex;flex-direction: row; flex-wrap: wrap; justify-content: space-around;">
+    <!--<h3>Lista de Productos</h3>
 
-{% block table_body %}
-    {% for Producto in object_list %}
-    <tr>
-          <td>{{ Producto.Nombre }}</td>
-          <td>${{ Producto.Precio }}</td>
-          <td><a href="{% url 'Producto:Producto_detail' Producto.id %}" class="btn btn-secondary">Ver detalle</a></td>
-          {% if user.is_staff %}
-          <td><a href="{% url 'Producto:Producto_update' Producto.id %}" class="btn btn-primary">Actualizar</a></td>
-          <td><a href="{% url 'Producto:Producto_delete' Producto.id %}" class="btn btn-danger">Eliminar</a></td>
-          {% endif %}
-    </tr>
+    {% if object_list %}
+        
+                <!-- Sirve para buscar categorías por nombre. Se pasa a la variable consulta de la vista. -->
+                <div class="py-lg-4">
+                    <form action="{% url 'Producto:Producto_list' %}" method="get">
+                        <input name="consulta" type="text" class="form-control" placeholder="Buscar...">
+                    </form>
+                </div>
+
+                {% for Producto in object_list %}
+    <div class="card" style="width: 22rem; padding: 0rem; margin: 1rem;">
+        <img
+        {% if Producto.imagen%}
+                src="{{Producto.imagen.url}}"
+                {% else %}
+                src="{{Producto.imagen.url}}"
+        {% endif %}
+        class="card-img-top img-fluid" alt="Producto">
+        <div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between">
+            <div style="padding-bottom: 1rem;">
+                <h5 class="card-title">{{Producto.Nombre}}</h5>
+                <p class="card-text">{{Producto.Descripcion}}</p>
+                <p class="card-text" style="text-align: end;"><strong>$ {{Producto.Precio}}</strong></p>
+            </div>
+          <div style="text-align: center;">
+              <a href="{% url 'Producto:Producto_detail' Producto.id %}" class="btn btn-secondary">Ver detalle</a>
+              {% if user.is_staff %}
+              <a href="{% url 'Producto:Producto_update' Producto.id %}" class="btn btn-primary">Actualizar</a>
+              <a href="{% url 'Producto:Producto_delete' Producto.id %}" class="btn btn-danger">Eliminar</a>
+              {% endif %}
+          </div>
+        </div>
+       
+      </div>
     {% endfor %}
-{% endblock table_body %}
+
+
+
+    {% else %}
+        <p class="fs-4 fst-italic">No hay registros ingresados</p>
+    {% endif %}
+
+
+    
+
+  </div>
+
+
+  <p class="mt-5 fw-semibold text-center">Total de productos: {{ object_list | length }}</p>
+<div class="d-grid gap-3">
+    {% include 'Producto/index_back.html' %}
+</div>
+{% endblock content_producto %}
 
 
         

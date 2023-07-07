@@ -1,7 +1,7 @@
 {% extends 'Posteos/index.html' %}
 
 
-{% block title %} Posteos {% endblock title %}
+{% block title %} Lista de Posteos {% endblock title %}
 
 {% block content_posteos %}
 
@@ -14,11 +14,12 @@
        <input name="consulta" type="text" placeholder="Buscar...">
      </form>
    </div>
+  
 
     {% for Posteos in object_list %}
       <ul>
         <li>{{ Posteos.titulo }}
-          <a href="{% url 'Posteos:Posteos_detail' Posteos.id %}" class="btn btn-secondary">Leer más...</a>
+          <a href="{% url 'Posteos:Posteos_detail' Posteos.id %}" class="">Leer más...</a>
           {% if user.is_staff %}
             
             <a href="{% url 'Posteos:Posteos_update' Posteos.id %}" class="btn btn-primary">Actualizar</a>
