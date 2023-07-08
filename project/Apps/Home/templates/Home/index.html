@@ -19,12 +19,21 @@
 
 
    <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/Embarcacion Naval.webp' %}" alt="..." /></div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-6 mb-lg-4" src="{% static 'Home/img/Embarcacion Naval.webp' %}" alt="..." /></div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">Barcos Coleccionables de Madera </h1>
-            <p>En este sitio web podras comprar tus barcos de madera coleccinables</p>
-            <a class="btn btn-primary" href="{% url 'Producto:Producto_list' %}">Mira todo los Productos Aqui</li></a>
+            <h1 class="font-weight-light">Modelismo Naval Coleccionable </h1>
+            <p>En Modelismo Naval encontraras bellos barcos de madera que podras lucir, tambien contamos con
+                varios talleres donde puedes desarrollar habilidades para la construccion de estos mismos y conocer mejor sobre las herramientas
+                que se usan para su construcción. Por ultimo contamos con un apartado donde podras postear tu conocimientos sobre este arte o simplemente compartir 
+                alguna historia sobre barcos.
+            </p>
+            <a class="btn btn-outline-info" href="{% url 'Producto:Producto_list' %}">Mira todo los Productos Aqui</li></a>
+            <a class="btn btn-outline-dark" style="margin-top: 10px" href="{% url 'Servicio:Servicio_list' %}">Mira los Servicios Aqui</li></a>
+            <a class="btn btn-outline-success" style="margin-top: 10px" href="{% url 'Posteos:Posteos_list' %}">Mira los Posteos Aqui</li></a>
+
         </div>
-        <a class="btn btn-primary" href="{% url 'Posteos:Posteos_list' %}">Mira los Posteos Aqui</li></a>
     </div>
+    <div>
+    </div>
+
 {% endblock content %}
