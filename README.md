@@ -14,7 +14,7 @@ Tambien cabe resaltar que si un usuario no cuenta con usuario este puede crearlo
 
 # Front-End
 * HTML
-* Plantilla BootStrap
+* Bootstrap
 * CSS
 * JavaScript
 
