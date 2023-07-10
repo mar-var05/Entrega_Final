@@ -1,4 +1,4 @@
-# Proyecto Fnal CoderHouse - Python
+# Proyecto Final CoderHouse - Python
 
 Comisión: 40445
 
@@ -13,14 +13,15 @@ Cualquier usuario que ingrese a la pagina puede navegar por esta sin necesidad d
 Tambien cabe resaltar que si un usuario no cuenta con usuario este puede crearlo en la seccion "Registrate Aqui".
 
 # Front-End
--HTML
--Plantilla BootStrap
--CSS
--JavaScript
+* HTML
+* Plantilla BootStrap
+* CSS
+* JavaScript
 
 # Back-End
--Python 
--Django
+* Python 
+* Django
+
 
 * Se utilizo Pillow para poder gestionar las imagenes
 * Se utilizo un entorno virtual para encapsular
