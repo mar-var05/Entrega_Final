@@ -22,7 +22,10 @@
         </li>
             
     </ul>
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-3" style="margin: 1rem;"> 
+        <a href="{% url 'Servicio:Servicio_list' %}" class="btn btn-info">Volver a la Lista de Servicios</a>
+    </div> 
+    <div class="d-grid gap-3" style="margin: 1rem;">
         {% include 'Servicio/index_back.html' %}
     </div>
 

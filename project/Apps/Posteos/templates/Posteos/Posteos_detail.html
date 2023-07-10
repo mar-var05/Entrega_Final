@@ -28,7 +28,10 @@
             <p class="card-text"><span style="text-decoration: underline;">Ultima modificación:</span> {{posteos.Ultima_actualizacion}}</p>
         </div>
     </div>
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-3" style="margin: 1rem;"> 
+      <a href="{% url 'Posteos:Posteos_list' %}" class="btn btn-info">Volver a la Lista de Posteos</a>
+  </div> 
+    <div class="d-grid gap-3" style="margin: 1rem;">
         {% include 'Posteos/index_back.html' %}
     </div>
 {% endblock content_posteos%}

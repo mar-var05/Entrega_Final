@@ -25,9 +25,11 @@
                 
         </li>
     </ul>
-    <div class="d-grid gap-3">
+    <div class="d-grid gap-3" style="margin: 1rem;"> 
+        <a href="{% url 'Producto:Producto_list' %}" class="btn btn-info">Volver a la Lista de Productos</a>
+    </div> 
+    <div class="d-grid gap-3" style="margin: 1rem;">
         {% include 'Producto/index_back.html' %}
     </div>
-
 {% endblock content_producto %}
 
