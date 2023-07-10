@@ -1,7 +1,28 @@
 {% extends 'Home/base.html' %}
+{% load static %}
 
 {% block content %}
   <div class="image-container">
-    <p class="text-center display-1 mb-5 mt-3">Mi nombre es Mariana Varon, tengo 19 años y este es mi primer proyecto en Django</p>
+    <p class="row gx-4 gx-lg-5 align-items-center my-5">Mi nombre es Mariana Varon, tengo 19 años y este es mi primer proyecto en Python, mi
+    enfoque va mucho más hacia el analisis de datos, ya que me encuentro haciendo un curso de Analisis de Datos, este curso lo tome más que todo para entender
+    la logica que implica la programación ya que desconocia mucho de esta. Tengo más conocimiento con herramientas como MySQL y Excel</p>
+
+    <a class="btn btn-outline-dark"  href="https://github.com/mar-var05" style="margin-top: 05px" >GitHub</a>
   </div>
-{% endblock %}
+  
+  <div class="col-lg-5">
+    
+    <img
+    class="img-fluid rounded mb-4 mb-lg-0"
+    src="{% static 'Home/img/Foto-Personal.jpg' %}" 
+    alt="Imagen de inicio"
+    style="width: 1280px; height: 720x;"
+    /> 
+  </div>
+  
+{% endblock content %}
+
+
+
+    
+  
